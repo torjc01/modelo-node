@@ -1,0 +1,64 @@
+name: Rapport de bogue
+description: Créér du rapport de bogue
+title: "[Bogue]: "
+labels: ["bug", "triage"]
+assignees:
+  - torjc01
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci d'avoir rempli ce rapport de bogue! 
+  - type: input
+    id: contact
+    attributes:
+      label: Détails de contact
+      description: Comment pouvons-nous entrer en contact avec vous au besoin de plus d'info. 
+      placeholder: ex. email@exemple.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Qu'est que se passe?
+      description: Aussi, dites ce que vous pensez que doit se passer.
+      placeholder: Dites-nous ce que vous voyez!
+      value: "Une erreur!"
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: Quelle est la version du logiciel que vous utilisez?
+      options:
+        - S/O (Defaut)
+        - 1.0.2 ()
+        - 1.0.3 (Edge)
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Dans quels navigateurs vous voyez le problème?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - S/O
+  - type: textarea
+    id: logs
+    attributes:
+      label: Registres de log relevants
+      description: Merci de copier et coller les registres de log relevants. Ceci sera automatiquement formaté comme code, alors pas besoin de guillemets.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code de conduite 
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

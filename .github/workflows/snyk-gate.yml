@@ -1,0 +1,18 @@
+# Ce workflow fait la protection du deploy des packages de dépendances. 
+
+name: Snyk Security Gate
+on:
+  pull_request:
+    branches:
+      prod
+jobs:
+  oss-security:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Check for high severity oss vulnerabilities
+      uses: snyk/actions/node@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        args: --severity-threshold=high --fail-on=upgradable
