@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16  
+    commands:
+      - echo Installing mocha JavaScript test framework for Node.js
+      - npm install -g mocha
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+      - npm install unit.js
+      - npm ci
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Testing your app ...
+      - mocha test.js
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - index.html 
