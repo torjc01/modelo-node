@@ -1,0 +1,17 @@
+//# .vscode/launch.json
+//# Configuration pour débogage npm directement via l'écran d'édition de VSCode 
+//#
+{
+    "version": "0.2.0", 
+    "configurations": [
+        {
+            "name": "Launch App", 
+            "program": "${workspaceFolder}/server.js", 
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        }
+    ]
+}
